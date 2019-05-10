@@ -31,16 +31,14 @@ ponto = 1:4;
 q_acerto = 0;
 
 %t_rodadas = 0;
-%primeiro for para rodar a porcertagem%
+%primeiro laço para rodar a porcertagem%
 for prop = 1:9
     valor1 = valor1 + 0.1;
-    
-    %segundo para as rodadas de cada porcertagem%
-
+  
     q_acerto = 0;
     q_erro = 0;
- 
-   
+    
+    %segundo laço para as rodadas de cada porcertagem
     for i = 1:30
        
            A = randperm(m);
@@ -57,56 +55,53 @@ for prop = 1:9
            df=d1;
            
            for teste = 3:v1
-              d2 = sqrt(distancePoints( d_teste(1,:), d_teste(3,:)));
-             
-              if(d2 < df)
-                  df=d2;
-                  ponto = d_teste(3,:); 
-              endif
+                  d2 = sqrt(distancePoints( d_teste(1,:), d_teste(3,:)));
+
+                  if(d2 < df)
+                      df=d2;
+                      ponto = d_teste(3,:); 
+                  endif
             
            endfor
            
-           
            if(d_teste(1,5) == ponto(1,5) && d_teste(1,5) == 1)
-              q_acerto = q_acerto + 1;
-              qc1 = qc1 + 1;
+                  q_acerto = q_acerto + 1;
+                  qc1 = qc1 + 1;
            endif
 
            if(d_teste(1,5) == ponto(1,5) && d_teste(1,5) == 2)
-              q_acerto = q_acerto + 1;
-              qc2 = qc2 + 1;
+                  q_acerto = q_acerto + 1;
+                  qc2 = qc2 + 1;
            endif
               
            if(d_teste(1,5) == ponto(1,5) && d_teste(1,5) == 3)
-                q_acerto = q_acerto + 1;
-                qc3 = qc3 + 1;
+                  q_acerto = q_acerto + 1;
+                  qc3 = qc3 + 1;
            endif
-           
-           
-       
-       
-       
-     endfor 
+    endfor 
      
-        media = q_acerto/v1;
-        tx_acerto(prop)=media;
-        media_min = min(media);
-        media_max = max(media);
+           media = q_acerto/v1;
+           media_c1 = qc1/v1;
+           media_c2 = qc2/v1;
+           media_c3 = qc3/v1;
+           tx_acerto(prop)=media;
+           media_min = min(media);
+           media_max = max(media);
 
-        %tx_acerto_c1(prop) = media_c1;
-        %tx_acerto_c0(prop) = media_c0 ;
- 
-    endfor
-media_c1 = qc1/v1;
-media_c2 = qc2/v1;
-media_c3 = qc3/v1;
-        %figure(1);
-        %hold on;
-        %grid on;
-        %plot(tx_acerto,'g', 'LineWidth', 2);  
-        %plot(tx_acerto_c0,'r', 'LineWidth', 2); 
-        %plot(tx_acerto_c1,'k', 'LineWidth', 2); 
+           tx_acerto_c1(prop) = qc1/;
+           tx_acerto_c2(prop) = qc2/;
+           tx_acerto_c3(prop) = qc3/;
+endfor
 
-%plot(q_acerto,'b');    
+
+figure(1);
+hold on;
+grid on;
+plot(tx_acerto,'g', 'LineWidth', 2);  
+plot(tx_acerto_c1,'r', 'LineWidth', 2); 
+plot(tx_acerto_c2,'k', 'LineWidth', 2);
+plot(tx_acerto_c2,'p', 'LineWidth', 2); 
+
+plot(q_acerto,'b');    
 %d_teste2 = d_testes1e(1:70,:);
 %d_treinamento2 = d_testes1e(71:701,:);
