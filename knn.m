@@ -6,9 +6,9 @@ iris = load ("Iris.dat");
 
 %---------||---------||---------||---------||---------||---------||----------%
 
-    qc1 = 0;
-    qc2 = 0;
-    qc3 = 0;
+qc1 = 0;
+qc2 = 0;
+qc3 = 0;
 
 valor1=0;
 res=0;
@@ -42,55 +42,55 @@ for prop = 1:9
     for i = 1:30
        
            A = randperm(m);
-           d_testese = iris(A,:);
+           d_treinamento = iris(A,:);
             
            v1= m*valor1
            v2= v1+1;,
-           d_teste = d_testese(1:v1,:);
-           %d_treinamento = d_testese(v2:m,:);
+           d_treinamento = d_treinamentoe(1:v1,:);
+           %d_teste = d_testese(v2:m,:);
            
-           d1= sqrt(distancePoints( d_teste(1,:), d_teste(2,:)));
+           d1= sqrt(distancePoints( d_treinamento(1,:), d_treinamento(2,:)));
            
-           ponto = d_teste(2,:);
+           ponto = d_treinamentoe(2,:);
            df=d1;
            
            for teste = 3:v1
-                  d2 = sqrt(distancePoints( d_teste(1,:), d_teste(3,:)));
+                  d2 = sqrt(distancePoints( d_treinamento(1,:), d_treinamento(3,:)));
 
                   if(d2 < df)
                       df=d2;
-                      ponto = d_teste(3,:); 
+                      ponto = d_treinamento(3,:); 
                   endif
             
            endfor
            
-           if(d_teste(1,5) == ponto(1,5) && d_teste(1,5) == 1)
+           if(d_teste(1,5) == ponto(1,5) && d_treinamento(1,5) == 1)
                   q_acerto = q_acerto + 1;
-                  qc1 = qc1 + 1;
+                  qac1 = qac1 + 1;
            endif
 
-           if(d_teste(1,5) == ponto(1,5) && d_teste(1,5) == 2)
+           if(d_teste(1,5) == ponto(1,5) && d_treinamento(1,5) == 2)
                   q_acerto = q_acerto + 1;
-                  qc2 = qc2 + 1;
+                  qac2 = qac2 + 1;
            endif
               
-           if(d_teste(1,5) == ponto(1,5) && d_teste(1,5) == 3)
+           if(d_teste(1,5) == ponto(1,5) && d_treinamento(1,5) == 3)
                   q_acerto = q_acerto + 1;
-                  qc3 = qc3 + 1;
+                  qac3 = qac3 + 1;
            endif
     endfor 
      
            media = q_acerto/v1;
-           media_c1 = qc1/v1;
-           media_c2 = qc2/v1;
-           media_c3 = qc3/v1;
+           media_c1 = qac1/qc1;
+           media_c2 = qac2/qc2;
+           media_c3 = qac3/qc3;
            tx_acerto(prop)=media;
-           media_min = min(media);
-           media_max = max(media);
+           media_min = min(tx_acerto);
+           media_max = max(tx_acerto);
 
-           tx_acerto_c1(prop) = qc1/;
-           tx_acerto_c2(prop) = qc2/;
-           tx_acerto_c3(prop) = qc3/;
+           tx_acerto_c1(prop) = media_c1;
+           tx_acerto_c2(prop) = media_c2;
+           tx_acerto_c3(prop) = media_c3;
 endfor
 
 
@@ -100,8 +100,8 @@ grid on;
 plot(tx_acerto,'g', 'LineWidth', 2);  
 plot(tx_acerto_c1,'r', 'LineWidth', 2); 
 plot(tx_acerto_c2,'k', 'LineWidth', 2);
-plot(tx_acerto_c2,'p', 'LineWidth', 2); 
+plot(tx_acerto_c3,'p', 'LineWidth', 2); 
 
-plot(q_acerto,'b');    
+
 %d_teste2 = d_testes1e(1:70,:);
 %d_treinamento2 = d_testes1e(71:701,:);
