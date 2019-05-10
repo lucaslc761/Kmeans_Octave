@@ -10,8 +10,11 @@ qc1 = 0;
 qc2 = 0;
 qc3 = 0;
 
+qac1 = 0;
+qac2 = 0;
+qac3 = 0;
+
 valor1=0;
-res=0;
 
 erro=0;
 
@@ -92,7 +95,6 @@ for prop = 1:9
            tx_acerto_c2(prop) = media_c2;
            tx_acerto_c3(prop) = media_c3;
 endfor
-
 
 figure(1);
 hold on;
