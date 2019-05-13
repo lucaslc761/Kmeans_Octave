@@ -48,7 +48,7 @@ for prop = 1:9
     qc3 = 0;
     %segundo laÃ§o para as rodadas de cada porcertagem
     for i = 1:30
-       
+
            A = randperm(m);
            d_treinamentoe = iris(A,:);
             
@@ -104,11 +104,13 @@ for prop = 1:9
                 endif
                 
            endif     
-           t_rodadas = t_rodadas + 1; 
+          %t_rodadas = t_rodadas + 1; 
    endfor 
      
            media = q_acerto/30;
+                     
            media_c1 = qac1/qc1;
+           
            media_c2 = qac2/qc2;
            media_c3 = qac3/qc3;
            tx_acerto(prop)=media;
@@ -121,12 +123,14 @@ for prop = 1:9
 endfor
 
 figure(1);
+title("ALGORITMO KNN");
 hold on;
 grid on;
 plot(tx_acerto,'g', 'LineWidth', 2);  
 plot(tx_acerto_c1,'r', 'LineWidth', 2); 
 plot(tx_acerto_c2,'k', 'LineWidth', 2);
 plot(tx_acerto_c3,'b', 'LineWidth', 2); 
+ 
 
 printf("Minimo: %d \n", media_min);
 printf("Maximo: %d \n", media_max);
