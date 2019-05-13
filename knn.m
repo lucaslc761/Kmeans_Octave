@@ -74,7 +74,7 @@ for prop = 1:9
            endfor
            
            if(d_treinamento(1,5) == 1)
-           qc1 = qc1 + 1;
+                qc1 = qc1 + 1;
            
                 if(d_treinamento(1,5) == ponto(1,5))
                       q_acerto = q_acerto + 1;
@@ -85,7 +85,7 @@ for prop = 1:9
            
            
            if(d_treinamento(1,5) == 2)
-           qc2 = qc2 + 1;
+                 qc2 = qc2 + 1;
            
                 if(d_treinamento(1,5) == ponto(1,5))
                       q_acerto = q_acerto + 1;
@@ -96,7 +96,7 @@ for prop = 1:9
            
            
            if(d_treinamento(1,5) == 3)
-           qc3 = qc3 + 1;
+                qc3 = qc3 + 1;
            
                 if(d_treinamento(1,5) == ponto(1,5))
                       q_acerto = q_acerto + 1;
