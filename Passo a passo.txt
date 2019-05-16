@@ -6,11 +6,10 @@ Passo a passo.
 4. Verificar as Distâncias Euclidianas entres os pontos e os centros de massa calculados.
 5. Reorganizar os pontos nos clusters, apartir da Distâncias Euclianas calculadas e recalcular os centroides.
 6. Para iniciar o recebimento de dados do dataset geral (agrupamento.dat).
-***(Verificar se é possível criar uma nova coluna no dataset e iniciar todos os valores da coluna com zero para que posteriormente
-esta seja a coluna da classe)***
-7. Classificar nos novos elementos que forem recebidos a partir da Distância Euclidiana dos pontos recebidos para os centroides.
-8. Recalcular os centroides após receber os valores.
-9. Verificar a necessidade de um novo cluster.
-  9.1 calcular o elbow
+7. Criar uma nova coluna no dataset e iniciar todos os valores da coluna com zero para que posteriormente esta seja a coluna da classe.
+8. Classificar nos novos elementos que forem recebidos a partir da Distância Euclidiana dos pontos recebidos para os centroides.
+9. Recalcular os centroides após receber os valores.
+10. Verificar a necessidade de um novo cluster.
+  10.1 calcular o elbow
       **Para os pontos x que estão no cluster Ci, some o quadrado das distâncias de cada ponto até o centro desse cluster.
       somar isso para todos os k clusters**
