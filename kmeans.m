@@ -10,31 +10,17 @@ centroide = load ("centroides.dat");
 
 k = [];
 elbow = 0;
+vari = [];
+d_eulc = [];
 %---------||---------setando as classes iniciais---------||----------%
-for i = 1:6, j = 7:12
-    centroide(i,5)=1;
-    centroide(j,5)=2;
-endfor
 
+centroide(1,5)=1;
+centroide(2,5)=2;
 
-%figure(1);
-%title("ALGORITMO KNN");
-%hold on;
-%grid on;
-%plot(tx_acerto,'g', 'LineWidth', 2);  
-%plot(tx_acerto_c1,'r', 'LineWidth', 2); 
-%plot(tx_acerto_c2,'k', 'LineWidth', 2);
-%plot(tx_acerto_c3,'b', 'LineWidth', 2); 
- 
-
-%printf("Minimo: %d \n", media_min);
-%printf("Maximo: %d \n", media_max);
-%printf("tx_acerto: %d \n",  tx_acerto);  
-%printf("\n");
-%printf("tx_acerto_c1 %d \n", tx_acerto_c1); 
-%printf("\n");
-%printf("tx_acerto_c2 %d \n" , tx_acerto_c2);
-%printf("\n");
-%printf("tx_acerto_c3 %d \n", tx_acerto_c3); 
-
-
+figure(1);
+title("Teste K-Means");
+grid on;
+hold on;
+plot3(agrupamento(1:350,1),agrupamento(1:350,2),agrupamento(1:350,4), 'kx');
+plot3(agrupamento(351:600,1),agrupamento(351:600,2),agrupamento(351:600,4), 'k+');
+plot3(agrupamento(601:1000,1),agrupamento(601:1000,2),agrupamento(601:1000,4), 'k*');
