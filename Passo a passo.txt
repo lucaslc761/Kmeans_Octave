@@ -1,8 +1,8 @@
-Passo a passo.
+﻿Passo a passo.
 
-1. Há um dataset para os 12 valores iniciais (centroides.dat). A partir dos 12 valores serão gerados os 2 primeiros clusters.
-2. Dividir os valores iglamente para gerar 2 clusters iniciais.
-3. Calcular os centros de massa dos clusters. 
+1. Em um dataset para os 12 valores iniciais (centroides.dat). A partir dos 12 valores serão gerados os 2 primeiros clusters.
+2. Pegando as duas primeiras linhas do arquivo,para a partir dela gerar meus dois primeiros clusters.
+3. Calcular os centros de massa dos dois clusters. 
 4. Verificar as Distâncias Euclidianas entres os pontos e os centros de massa calculados.
 5. Reorganizar os pontos nos clusters, apartir da Distâncias Euclianas calculadas e recalcular os centroides.
 6. Para iniciar o recebimento de dados do dataset geral (agrupamento.dat).

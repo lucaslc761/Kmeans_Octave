@@ -11,16 +11,44 @@ centroide = load ("centroides.dat");
 k = [];
 elbow = 0;
 vari = [];
+teste1 =[12,5];
 d_eulc = [];
 %---------||---------setando as classes iniciais---------||----------%
 
 centroide(1,5)=1;
 centroide(2,5)=2;
 
-figure(1);
-title("Teste K-Means");
-grid on;
-hold on;
-plot3(agrupamento(1:350,1),agrupamento(1:350,2),agrupamento(1:350,4), 'kx');
-plot3(agrupamento(351:600,1),agrupamento(351:600,2),agrupamento(351:600,4), 'k+');
-plot3(agrupamento(601:1000,1),agrupamento(601:1000,2),agrupamento(601:1000,4), 'k*');
+#inserindo uma coluna de zeros no dataset
+
+for i=1 :1000
+  agrupamento(i,5)=0;
+  endfor
+
+  
+  d1=10;
+  #coloquei o valor de 10 so para teste, mas vamos mudar
+  #para que ele compare com o valor dos centroide 1 e 2 
+
+  
+ for i=1 : 1000
+   for j=1:4
+     
+    d2= sqrt(distancePoints (agrupamento(i,j),centroide(1,1)));
+    if(d2 < d1)
+     agrupamento(i,5)=1;
+     endif
+  endfor
+ printf("%d \n",d2);
+  
+  #printf("\n");
+endfor
+
+
+
+%figure(1);
+%title("Teste K-Means");
+%grid on;
+%hold on;
+%plot3(agrupamento(1:350,1),agrupamento(1:350,2),agrupamento(1:350,4), 'kx');
+%plot3(agrupamento(351:600,1),agrupamento(351:600,2),agrupamento(351:600,4), 'k+');
+%plot3(agrupamento(601:1000,1),agrupamento(601:1000,2),agrupamento(601:1000,4), 'k*');
