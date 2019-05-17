@@ -8,7 +8,8 @@ centroide = load ("centroides.dat");
 
 %---------||---------||---------||---------||---------||---------||----------%
 
-k = [];
+k = 0;
+j=1;
 elbow = 0;
 vari = [];
 teste1 =[12,5];
@@ -22,26 +23,31 @@ centroide(2,5)=2;
 
 for i=1 :1000
   agrupamento(i,5)=0;
-  endfor
-
-  
-  d1=10;
-  #coloquei o valor de 10 so para teste, mas vamos mudar
-  #para que ele compare com o valor dos centroide 1 e 2 
-
-  
- for i=1 : 1000
-   for j=1:4
-     
-    d2= sqrt(distancePoints (agrupamento(i,j),centroide(1,1)));
-    if(d2 < d1)
-     agrupamento(i,5)=1;
-     endif
-  endfor
- printf("%d \n",d2);
-  
-  #printf("\n");
 endfor
+
+d1=10;
+#coloquei o valor de 10 so para teste, mas vamos mudar
+#para que ele compare com o valor dos centroide 1 e 2 
+
+for i = 1 : m
+   
+    dist1 = sqrt(distancePoints (agrupamento(i,1:4),centroide(1,1:4)));
+    dist2 = sqrt(distancePoints (agrupamento(i,1:4),centroide(2,1:4)));
+      
+      if(dist1 <= dist2) 
+        agrupamento(i,5)=1;
+      else
+        agrupamento(i,5)=2;      
+      endif
+       
+  #printf("\n");
+  endfor
+%elbow
+x = agrupamento(1, 5);
+ba= count(x, 2);
+
+%if ()
+
 
 
 
