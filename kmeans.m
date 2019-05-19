@@ -27,13 +27,12 @@ endfor
 %com K clusters.
 for k = 2 : x
     
-    %inicializa variavel da primeira contagem de elementos por classe.
+    %inicializa vetor da primeira contagem de elementos por classe.
+    %inicializa vetor da segunda contagem de elementos por classe.
+    
     for p = 1:k
-        p1(p)=0; 
-    endfor
-    %inicializa variavel da segunda contagem de elementos por classe.
-    for np = 1:k
-        p2(np)=0; 
+        p1(p)=0;
+        p2(p)=0; 
     endfor
     
     %inicia a verificação da distancia de cada elemento para os K clusters
@@ -46,7 +45,7 @@ for k = 2 : x
             menor= min(d_geral);
         endfor
         
-        %verificar menor distancia
+        %verificar a menor distancia e conta quantos elemetos cada classe tem.
         for t=1:k
             if( d_geral(t)==menor) 
                 agrupamento(i,5)=t;
@@ -72,26 +71,43 @@ for k = 2 : x
         endif
     endfor
     
+    
+    
     %recalculando classificação com os novos centroides dados os novos pontos 
     for ni = 1 : m
         d_geral=[];     
+        d_v(ni,1:k) = 0;
         
         for nh = 1:k
             dist1 = sqrt(distancePoints (agrupamento(ni,1:4),centroide(nh,1:4)));
             d_geral(nh) = dist1;
             menor= min(d_geral);
+            d_v(ni,nh) = dist1;
         endfor
         
-        %verificar nova menor distancia
+        
+        %verificar a nova menor distancia e conta quantos elemetos cada 
+        %classe tem.
         for nt=1:k
-            
             if( d_geral(nt)==menor) 
                 agrupamento(ni,5)=nt;
                 p2(nt)+=1;
             endif
-        endfor 
+        endfor
+         
     endfor
     
+    %variancia.
+    d_v = power(d_v,2);
+    u = sum(d_v(:,:));
+    %u = u/p2;
+    u = sum(u);
+  
+    figure(1);
+    title("Teste K-Means");
+    grid on;
+    hold on;
+    plot(k,u, 'ko-');
 endfor
 
 
